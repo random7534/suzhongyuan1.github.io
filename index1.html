@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/me.css">
+  <title>个人博客网站</title>
+</head>
+
+<body>
+  <!-- 导航栏 -->
+  <nav>
+    <div class="logo"><span>Blog</span></div>
+    <div class="fu-r m-right">
+      <!-- 导航至首页 -->
+      <div class="tit fon-size active"><a href="./index.html">首页</a></div>
+      <!-- 导航至分类 -->
+      <div class="tit"><a href="./types.html">分类</a></div>
+      <!-- 导航至关于我 -->
+      <div class="tit"><a href="./aboutME.html">关于我</a></div>
+    </div>
+  </nav>
+  <!-- 主体部分 -->
+  <section>
+    <div class="container">
+      <!-- 左边部分 博客列表-->
+      <div class="left-cont">
+        <div class="title">
+          <h3>博客</h3>
+          <span>共6篇</span>
+        </div>
+        <!-- 博客的标题 描述 作者 日期 浏览次数 分类 -->
+        <!-- 第一个导航 -->
+        <div class="item">
+          <div class="content">
+            <div class="fon-size fon-wei"><a class="blog-t " href="./blog.html">thymeleaf</a></div>
+            <div class="blog-desp">
+              Thymeleaf 是新一代 Java 模板引擎，支持 HTML 原型，以直接被浏览器打开，此时浏览器会忽略未定义的 Thymeleaf 标签属性，展示 thymeleaf
+              模板的静态页面效果。当在应用程序中会动态地替换掉页面设置的标签属性。
+            </div>
+            <div class="person">
+              <!--设置 -->
+              <div class="avatar time"><img class="img-a" src="./images/avatar.png" alt=""><span>作者:苏仲元</span></div>
+              <div class="time"> <img class="img-mini" src="./images/calendar.png" alt=""> <span>2022-6-20</span></div>
+              <div class="num time"> <img class="img-mini" src="./images/open.png" alt=""> <span>111</span></div>
+              <div class="type">计算机基础</div>
+            </div>
+          </div>
+          <!-- 每个博客 对应的一张 封面图片-->
+          <div class="firstImage">
+            <img class="img-first" src="./images/firstImage.png" alt="">
+          </div>
+        </div>
+        <!-- 第二个导航 -->
+        <div class="item">
+          <div class="content">
+            <div class="fon-size fon-wei"><a class="blog-t" href="./blog.html">十分钟了解Spring</a></div>
+            <div class="blog-desp">
+              对于我们而言，使用Spring框架所做的就两件事：开发Bean，配置Bean。
+              对于Spring框架来说，就是根据配置文件（applicationContext.xml）创建Bean实例，并调用Bean实例的方法完成“依赖注入”。
+            </div>
+            <div class="person">
+              <div class="avatar time"><img class="img-a" src="./images/avatar.png" alt=""><span>作者:苏仲元</span></div>
+              <div class="time"> <img class="img-mini" src="./images/calendar.png" alt=""> <span>2022-6-20</span></div>
+              <div class="num time"> <img class="img-mini" src="./images/open.png" alt=""> <span>111</span></div>
+              <div class="type">计算机基础</div>
+            </div>
+          </div>
+          <div class="firstImage">
+            <img class="img-first" src="./images/南湖大道.jpg" alt="">
+          </div>
+        </div>
+        <!-- 第三个导航 -->
+        <div class="item">
+          <div class="content">
+            <div class="fon-size fon-wei"><a class="blog-t" href="./blog.html">Shiro</a></div>
+            <div class="blog-desp">
+              三个核心组件：**Subject**, **SecurityManager** 和 **Realms.**
+
+              **Subject：**即“当前操作用户”。但是，在Shiro中，Subject这一概念并不仅仅指人，也可以是第三方进程、后台帐户（Daemon
+              Account）或其他类似事物。它仅仅意味着“当前跟软件交互的东西”。
+
+              Subject代表了当前用户的安全操作，SecurityManager则管理所有用户的安全操作。
+
+              **SecurityManager：**它是Shiro框架的核心，典型的[Facade模式](https://baike.baidu.com/item/Facade%E6%A8%A1%E5%BC%8F/7557140)，Shiro通过**SecurityManager来管理内部组件实例，并通过它来提供安全管理的各种服务**。
+
+              **Realm：**
+              Realm充当了Shiro与应用安全数据间的“桥梁”或者“连接器”。也就是说，当对用户执行认证（登录）和授权（访问控制）验证时，**Shiro会从应用配置的Realm中查找用户及其权限信息。** </div>
+            <div class="person">
+              <div class="avatar time"><img class="img-a" src="./images/avatar.png" alt=""><span>作者:苏仲元</span></div>
+              <div class="time"> <img class="img-mini" src="./images/calendar.png" alt=""> <span>2022-6-20</span></div>
+              <div class="num time"> <img class="img-mini" src="./images/open.png" alt=""> <span>111</span></div>
+              <div class="type">计算机基础</div>
+            </div>
+          </div>
+          <div class="firstImage">
+            <img class="img-first" src="./images/剪影.jpg" alt="">
+          </div>
+        </div>
+        <!-- 第四个导航 -->
+        <div class="item">
+          <div class="content">
+            <div class="fon-size fon-wei"><a class="blog-t" href="./blog.html">冒泡算法</a></div>
+            <div class="blog-desp">
+              冒泡排序（Bubble Sort），是一种计算机科学领域的较简单的排序算法。
+              它重复地走访过要排序的元素列，依次比较两个相邻的元素，如果顺序（如从大到小、首字母从Z到A）错误就把他们交换过来。走访元素的工作是重复地进行直到没有相邻元素需要交换，也就是说该元素列已经排序完成。
+              这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端（升序或降序排列），就如同碳酸饮料中二氧化碳的气泡最终会上浮到顶端一样，故名“冒泡排序”。
+            </div>
+            <div class="person">
+              <div class="avatar time"><img class="img-a" src="./images/avatar.png" alt=""><span>作者:苏仲元</span></div>
+              <div class="time"> <img class="img-mini" src="./images/calendar.png" alt=""> <span>2022-6-20</span></div>
+              <div class="num time"> <img class="img-mini" src="./images/open.png" alt=""> <span>111</span></div>
+              <div class="type">计算机基础</div>
+            </div>
+          </div>
+          <div class="firstImage">
+            <img class="img-first" src="./images/骑行台.jpg" alt="">
+          </div>
+        </div>
+        <!-- 第五个导航 -->
+        <div class="item">
+          <div class="content">
+            <div class=" fon-size fon-wei"><a class="blog-t" href="./blog.html">冒泡事件和捕获事件</a></div>
+            <div class="blog-desp">
+              事件按照从最特定的事件目标到最不特定的事件目标（document对象）的顺序触发
+              事件从最不精确的对象(document)开始触发，然后到最精确
+            </div>
+            <div class="person">
+              <div class="avatar time"><img class="img-a" src="./images/avatar.png" alt=""><span>作者:苏仲元</span></div>
+              <div class="time"> <img class="img-mini" src="./images/calendar.png" alt=""> <span>2022-6-20</span></div>
+              <div class="num time"> <img class="img-mini" src="./images/open.png" alt=""> <span>111</span></div>
+              <div class="type">计算机基础</div>
+            </div>
+          </div>
+          <div class="firstImage">
+            <img class="img-first" src="./images/文泰楼.jpeg" alt="">
+          </div>
+        </div>
+        <!-- 翻页 -->
+        <div class="page">
+          <span class="btn">上一页</span>
+          <span class="btn">下一页</span>
+        </div>
+      </div>
+      <!-- 右边部分 -->
+      <div class="right-cont">
+        <!-- 分类框 -->
+        <div class="m-bottom">
+          <div class="title">
+            <div class="time fon-size fon-wei"><img class="img-mini" src="./images/tips.png" alt=""><span>分类</span>
+            </div>
+            <div class="time fon-size fon-wei"><span class="m-right-mini">更多</span><img class="img-mini"
+                src="./images/more-four.png" alt="">
+            </div>
+          </div>
+          <!-- 分类可选 -->
+          <div class="types">
+            <div class="list">
+              <div>计算机基础</div>
+              <div>1</div>
+            </div>
+            <div class="list">
+              <div>计算机网络</div>
+              <div>2</div>
+            </div>
+            <div class="list">
+              <div>科学</div>
+              <div>3</div>
+            </div>
+            <div class="list">
+              <div>人文之理</div>
+              <div>4</div>
+            </div>
+          </div>
+        </div>
+        <!-- 标签框 -->
+        <div class="m-bottom">
+          <div class="title">
+            <div class="time fon-size fon-wei"><img class="img-mini" src="./images/tag-one.png" alt=""><span>标签</span>
+            </div>
+            <div class="time fon-size fon-wei"><span class="m-right-mini">更多</span><img class="img-mini"
+                src="./images/more-four.png" alt="">
+            </div>
+          </div>
+          <!-- 标签可选 -->
+          <div class="tags">
+            <a href="#">thymeleaf</a>
+            <a href="#">Vue</a>
+            <a href="#">javaScript</a>
+            <a href="#">java</a>
+            <a href="#">spring</a>
+            <a href="#">Shiro</a>
+            <a href="#">springBoot</a>
+            <a href="#">springMVC</a>
+          </div>
+        </div>
+        <!-- 最新推荐框 -->
+        <div>
+          <div class="title">
+            <div class="time fon-size fon-wei"><img class="img-mini" src="./images/bookmark.png"
+                alt=""><span>最新推荐</span>
+            </div>
+            <div class="time fon-size fon-wei"><span class="m-right-mini">更多</span><img class="img-mini"
+                src="./images/more-four.png" alt="">
+            </div>
+          </div>
+          <!-- 最新推荐栏 -->
+          <div class="types">
+            <div class="list">
+              <div>Thymeleaf</div>
+            </div>
+            <div class="list">
+              <div>Shiro</div>
+            </div>
+            <div class="list">
+              <div>十分钟了解Spring</div>
+            </div>
+            <div class="list">
+              <div>冒泡算法</div>
+            </div>
+          </div>
+        </div>
+        <!-- 联系我框 -->
+        <div class="icon">
+          <div class="icon-list weixin"><img class="img-mini" src="./images/wechat.png" alt=""></div>
+          <div class="icon-list qq"><img class="img-mini" src="./images/qq.png" alt=""></div>
+          <!-- 微信二维码图片 -->
+          <div class="is_weixin weinAndqq">
+            <img class="img-wechat" src="./images/微信二维码.png" alt="">
+          </div>
+          <div class="is_qq weinAndqq">
+            <img class="img-wechat" src="./images/qq二维码.png" alt="">
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <!-- 一键回到顶部 -->
+    <div class="tools">
+      <a href="#"><img class="img-t" src="./images/rocket.png" alt=""></a>
+    </div>
+  </section>
+  <!-- 底部 -->
+  <footer>
+    <div class="footer-title">欢迎访问</div>
+    </div>
+    <div class="footer-container">
+      <!-- 左边 -->
+      <div class="footer-left">
+        <img class="img-wechat" src="./images/微信二维码.png" alt="">
+      </div>
+      <!-- 中间 -->
+      <div class="footer-center">
+        <div>
+          <div class="l-tit">最新博客推荐</div>
+          <div class="l"><a href="#">Thymeleaf</a></div>
+          <div class="l"><a href="#">Shiro</a></div>
+          <div class="l"><a href="#">十分钟了解Spring</a></div>
+          <div class="l"><a href="#">冒泡算法</a></div>
+        </div>
+      </div>
+      <!-- 右边 -->
+      <div class="footer-right">
+        <div class="l-tit">简介</div>
+        <div class="l">
+          中南财经政法大学的一名苦逼码农，喜欢骑车，喜欢长途，去过长白山、青海湖、太湖远征。很菜又爱玩。博客中难免有些错误或者写的不好的地方，欢迎大家留言指出。我会第一时间进行完善
+        </div>
+      </div>
+    </div>
+    <!-- 最底部 -->
+    <div class="footer-contact">
+      <div class="main">suzhongyuan360@126.com</div>
+      <div class="ng-scope">我的邮箱</div>
+    </div>
+  </footer>
+</body>
+
+</html>
