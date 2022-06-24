@@ -1,0 +1,794 @@
+/* 布局主要是,弹性布局(display:flex)和定位position,就导航栏中用浮动 float
+  居中 text-algin  line-height
+  绝大多数 带有圆角 border-radius
+*/
+* {
+  margin: 0;
+  text-decoration: none;
+}
+
+
+.fu-r {
+  float: right;
+}
+
+.fon-size {
+  font-size: 18px;
+}
+
+.fon-wei {
+  font-weight: 600;
+}
+
+.pad-all {
+  padding: 20px;
+}
+
+.pad-left {
+  padding-left: 10px;
+}
+
+.m-right {
+  margin-right: 40px;
+}
+
+.m-right-mini {
+  margin-right: 10px;
+}
+
+.m-bottom {
+  margin-bottom: 40px;
+}
+
+.m-auto {
+  margin: 0 auto;
+}
+
+.m-top {
+  margin-top: 50px;
+}
+
+.b-bottom {
+  border-bottom: 1px solid rgb(170, 113, 113);
+}
+
+/* 首页 */
+/* 导航栏 */
+nav {
+  width: 100%;
+  height: 80px;
+  border-bottom: 1px solid rgb(206, 192, 192);
+  background-color: rgb(245, 252, 252);
+  padding-left: 40px;
+  padding-right: 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100000;
+}
+
+nav a {
+  color: black;
+}
+
+/* Blog这个logo 左浮动*/
+.logo {
+  float: left;
+  width: 80px;
+  height: 78px;
+  border-radius: 50%;
+  line-height: 78px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  border: 1px solid rgb(223, 145, 145, 0.7);
+}
+
+/* ：hover效果 */
+.logo span:hover {
+  color: gray;
+}
+
+/* 导航栏种 首页 分类 关于我  左浮动*/
+.tit {
+  width: 80px;
+  height: 50px;
+  margin-top: 20px;
+  margin-right: 60px;
+  line-height: 50px;
+  text-align: center;
+  float: left;
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+.tit:hover {
+  background-color: orange;
+}
+
+nav a:hover {
+  color: white;
+  opacity: 1;
+}
+
+/* 选中时的像是 首页 分类 关于我 */
+.active {
+  background-color: orange;
+}
+
+/*index.html 主体部分 */
+/* 左边 博客列表 */
+section {
+  margin-top: 100px;
+}
+
+/* 居中显示 弹性盒子*/
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+}
+/* 封面大图 */
+.left-cont {
+  width: 800px;
+  border: 1px solid rgb(221, 106, 106);
+  border-radius: 10px;
+}
+
+/* 弹性盒子 */
+.left-cont .title {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  color: rgb(90, 49, 21);
+  border-bottom: 1px solid saddlebrown;
+}
+
+.title>h3,
+.title>span {
+  display: block;
+}
+
+/* 例 Thymeleaf 这个博客整体 的样式 */
+.item {
+  padding: 20px;
+  display: flex;
+  border-bottom: 1px solid rgba(71, 69, 69, 0.171);
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item .content {
+  width: 500px;
+}
+
+/* Thymeleaf 标题 */
+.content .blog-t {
+  display: block;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: rgb(145 78 31);
+}
+
+/* Thymeleaf 描述  opacity:透明 */
+.content .blog-desp {
+  font-size: 14px;
+  font-weight: 500;
+  opacity: 0.7;
+  color: rgb(21, 88, 90);
+  cursor: pointer;
+  /* 溢出的部分 用...  */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+/* Thymeleaf 作者 时间 浏览次数 分类 。 弹性盒子*/
+.content .person {
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* 弹性盒子 */
+.time {
+  display: flex;
+  align-items: center;
+}
+
+/* 例：作者头像和作者名，内联在一块。 display:inline-block */
+.time>span {
+  display: inline-block;
+  font-size: 14px;
+  color: grey;
+  margin-left: 10px;
+}
+
+.type {
+  padding: 5px;
+  border-radius: 10px;
+  font-size: 14px;
+  color: orange;
+  font-weight: 600;
+  border: 1px solid orange;
+}
+
+/* 图片的大小 */
+/* 作者头像 */
+.img-a {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+/* 时间 浏览次数的图像 */
+.img-mini {
+  width: 20px;
+  height: 20px;
+}
+
+/* 博客封面图片 */
+.img-first {
+  width: 200px;
+  height: 100px;
+  border-radius: 10px;
+}
+
+/* 上一页 下一页 弹性盒子 */
+.page {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn {
+  width: 80px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+  font-size: 12px;
+  font-weight: 600;
+  color: orange;
+  border: 1px solid rgba(189, 28, 28, 0.692);
+  border-radius: 20px;
+}
+
+/* :nth-child() 选择器设置上一页和下一页margin不同的值*/
+.btn:nth-child(1) {
+  margin-left: 30px;
+}
+
+.btn:nth-child(2) {
+  margin-right: 30px;
+}
+
+/* 右边的那些框 */
+.right-cont {
+  width: 300px;
+  height: 100%;
+  border: 1px solid rgba(128, 0, 128, 0.178);
+  border-radius: 10px;
+}
+
+/* 例：分类 更多。弹性盒子 */
+.right-cont .title {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  height: 10px;
+  background-color: rgba(119, 33, 119, 0.158);
+  border-bottom: 2px solid rgb(119, 33, 119);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+/* 分类列表 弹性盒子 定位（下面实现 O ）*/
+.types .list {
+  padding: 10px;
+  display: flex;
+  height: 20px;
+  justify-content: space-between;
+  border: 1px solid rgba(128, 0, 128, 0.308);
+  position: relative;
+}
+
+/* :hover 那一行时 左边的字体触发效果 。例：计算机基础 1  左边的字触发效果*/
+.types .list:hover div:nth-child(1) {
+  color: purple;
+  font-weight: 600;
+}
+
+.types .list:last-child {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.types .list>div:nth-child(1) {
+  color: grey;
+}
+
+/* 数字1 2 3 4 外边的框 */
+.types .list>div:nth-child(2) {
+  width: 30px;
+  height: 20px;
+  padding-right: 5px;
+  text-align: right;
+  color: grey;
+  font-weight: 600;
+  border: 1px solid purple;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+/* 数字1 2 3 4 外边的框 在里面加个 o  定位实现 */
+.types .list>div:nth-child(2)::before {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border: 1px solid purple;
+  border-radius: 50%;
+  position: absolute;
+  right: 35px;
+  top: 16px;
+}
+
+/* 标签 */
+.tags {
+  padding: 20px;
+  border: 1px solid rgba(128, 0, 128, 0.308);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.tags>a {
+  color: grey;
+  display: inline-block;
+  padding: 5px 5px 5px 15px;
+  border: 1px solid purple;
+  margin-bottom: 5px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 20px;
+  position: relative;
+}
+
+/* 标签中那个框里面 加个 o  定位实现*/
+.tags>a::before {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 10px;
+  border: 1px solid purple;
+  position: absolute;
+  top: 10px;
+  left: 0;
+}
+
+.tags>a:hover {
+  background-color: silver;
+  color: purple;
+}
+
+/* 联系我 微信 qq*/
+.icon {
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  border: 1px solid purple;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+}
+
+.icon-list {
+  width: 50px;
+  height: 100%;
+}
+
+.is_weixin {
+  /* 鼠标触摸微信图标的时,显示对应的二维码 */
+  display: none;
+}
+
+.weinAndqq {
+  width: 160px;
+  height: 140px;
+  border: 1px solid purple;
+  background-color: rgb(244, 248, 252);
+  border-radius: 10px;
+  padding: 20px;
+  position: absolute;
+  top: 38px;
+  box-shadow: 1px 1px 1px 3px rgb(232, 236, 236);
+}
+
+.is_qq {
+  /* 鼠标触摸QQ图标的时,显示对应的二维码 */
+  display: none;
+}
+
+/* 图片上面的那个 o 定位实现。z-index：盖住边框线 */
+.is_weixin::before {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  border: 1px solid purple;
+  border-radius: 10px;
+  position: absolute;
+  top: -13px;
+  left: 19px;
+  z-index: 9;
+}
+
+.is_qq::before {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  border: 1px solid purple;
+  border-radius: 10px;
+  position: absolute;
+  top: -13px;
+  left: 70px;
+  z-index: 9;
+}
+
+/* 微信 qq 图标大小 */
+.img-wechat {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+}
+
+/* :hover 微信/qq图标时触发效果 */
+.weixin:hover~.is_weixin {
+  /*hover作用不相邻元素 ~ */
+  display: block;
+}
+
+.qq:hover~.is_qq {
+  display: block;
+}
+
+/* 回到顶部 */
+.img-t {
+  width: 60px;
+  height: 60px;
+}
+
+/* position:fixed */
+.tools {
+  position: fixed;
+  background-color: rgba(242, 246, 247, 0.479);
+  right: 50px;
+  bottom: 30px;
+  border-radius: 50%;
+}
+
+.tools:hover {
+  background-color: rgba(234, 235, 236, 0.479);
+  box-shadow: 5px 5px 0 0 black;
+}
+
+/* 底部 */
+footer {
+  margin-top: 50px;
+  padding: 10px;
+  background-color: rgb(0, 0, 0);
+  z-index: 1000;
+}
+
+/* 欢迎访问 */
+.footer-title {
+  color: white;
+  font-size: 30px;
+  font-weight: 600;
+  letter-spacing: 5px;
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* 欢迎访问 第一个字 欢 的颜色*/
+.footer-title::first-letter {
+  color: yellow;
+}
+
+/* 弹性盒子 */
+.footer-container {
+  padding: 5px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.footer-center {
+  width: 300px;
+  height: 100%;
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* 中间 最新博客推荐 */
+.l-tit {
+  color: rgb(215, 224, 221);
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-align: center;
+
+}
+
+.l {
+  color: rgb(226, 223, 223);
+  padding: 5px;
+  text-align: center;
+}
+
+.l>a {
+  color: rgb(226, 223, 223);
+}
+
+.l>a:hover {
+  color: aqua;
+}
+
+/* 右边 */
+.footer-right {
+  width: 500px;
+  height: 100%;
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.footer-contact {
+  padding: 10px;
+  color: white;
+  font-size: 12px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* types.html 分类页 弹性盒子 */
+.types-list {
+  width: 1000px;
+  /* 居中 */
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid purple;
+  border-radius: 10px;
+  background-color: rgb(245, 250, 249);
+  display: flex;
+}
+
+/* 每一个分类的 样式 */
+.ll {
+  padding: 5px 5px 5px 15px;
+  max-width: 150px;
+  margin-left: 20px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 20px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 20px;
+  border: 1px solid purple;
+  position: relative;
+}
+
+.ll>a {
+  color: rgb(85, 69, 69);
+  opacity: 0.7;
+}
+
+/* 左边的 o */
+.ll::before {
+  content: '';
+  display: block;
+  width: 10px;
+  height: 10px;
+  border: 1px solid purple;
+  border-radius: 50%;
+  position: absolute;
+  left: -1px;
+  top: 10px;
+
+}
+
+.ll:hover {
+  background-color: orange;
+}
+
+.ll_active {
+  background-color: orange;
+}
+
+/* 关于我页面 */
+/* 左边的那张大图 */
+.img-url {
+  width: 100%;
+  height: 800px;
+}
+
+/* 自我介绍 */
+.me {
+  padding: 10px;
+  opacity: 0.7;
+  letter-spacing: 2px;
+  border-bottom: 1px solid purple;
+}
+
+/* 分类 标签的样式 */
+.t {
+  padding: 10px;
+  border-bottom: 1px solid purple;
+}
+
+.t>span {
+  color: orange;
+  padding: 5px;
+  display: inline-block;
+  border: 1px solid purple;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+
+/* blog.html 博客详情页 */
+.b-container {
+  margin: 0 auto;
+  width: 1000px;
+}
+
+.con-blog {
+  width: 1000px;
+  height: 100%;
+  border: 1px solid purple;
+  border-radius: 10px;
+}
+
+/* 博客详情页 最上边的大图 */
+.img-b {
+  width: 100%;
+  height: 600px;
+  border-radius: 10px;
+}
+
+/* 原创 二字 */
+.flag {
+  text-align: right;
+}
+
+.flag>span {
+  display: inline-block;
+  width: 60px;
+  height: 20px;
+  text-align: center;
+  border: 1px solid red;
+  border-radius: 5px;
+  color: orange;
+}
+
+/* 博客内容部分 */
+.blog {
+  padding: 20px;
+}
+
+/* 博客内容 标题 */
+.blog .blog-t {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+  color: rgb(145 78 31);
+  padding-bottom: 20px;
+}
+
+/* 博客内容 正文部分 */
+p {
+  font-size: 16px;
+  line-height: 25px;
+  color: black;
+  opacity: 0.8;
+  white-space: pre-wrap;
+}
+
+.b-content>h3,
+.b-content>h4 {
+  padding: 10px;
+}
+
+.b-content>ul>li {
+  padding: 5px;
+}
+
+.b-content .quote {
+  display: block;
+  border-left: 5px solid purple;
+  padding: 5px 10px 5px 10px;
+}
+
+/* 正文中 代码的样式 */
+.b-content .code {
+  background-color: rgb(241, 243, 232);
+  color: grey;
+  border-radius: 10px;
+  padding: 20px;
+  font-size: 14px;
+  text-align: left;
+  white-space: pre-wrap;
+}
+
+/* 提示部分 转载声明 弹性盒子*/
+.tip {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-top: 1px solid purple;
+  border-bottom: 1px solid purple;
+  background-color: bisque;
+}
+
+.tip-content {
+  white-space: pre-wrap;
+  line-height: 25px;
+}
+
+/* 博客详情页的工具 */
+/* 定位到右下 */
+.b-tools {
+  position: fixed;
+  right: 100px;
+  bottom: 100px;
+}
+
+.ab {
+  position: relative;
+
+}
+
+.ab-2 {
+  position: absolute;
+  right: -34px;
+  width: 60px;
+  height: 60px;
+  border: 1px solid white;
+  background-color: rgb(232 232 232);
+  border-radius: 50%;
+  z-index: 1000;
+}
+
+/* 用绝对定位到与图片重叠 */
+.ab-1 {
+  position: absolute;
+  top: 0;
+  text-align: center;
+  line-height: 60px;
+  z-index: 0;
+}
+
+/* :hover 时 触发动画下过 一个上 */
+.m:hover {
+  background-color: rgba(234, 235, 236, 0.479);
+  box-shadow: 5px 5px 0 0 black;
+}
+
+.m:hover~.is_show1 {
+  animation: moveUp ease-out 1s forwards;
+}
+
+
+@keyframes moveUp {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-80px);
+  }
+}

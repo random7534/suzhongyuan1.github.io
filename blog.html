@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/me.css">
+  <title>博客详情页</title>
+</head>
+
+<body>
+  <!-- 导航栏 -->
+  <nav>
+    <div class="logo"><span>Blog</span></div>
+    <div class="fu-r m-right">
+      <!-- 导航至首页 -->
+      <div class="tit"><a href="./index.html">首页</a></div>
+      <!-- 导航至分类 -->
+      <div class="tit"><a href="./types.html">分类</a></div>
+      <!-- 导航至关于我 -->
+      <div class="tit"><a href="./aboutME.html">关于我</a></div>
+    </div>
+  </nav>
+<!-- 主体部分 -->
+  <section>
+    <div class="b-container">
+      <div class="con-blog">
+        <!-- 博客对应的 封面图-->
+        <div class="b-bottom pad-all">
+          <img class="img-b" src="./images/南湖大道.jpg" alt="">
+        </div>
+        <div class="flag fon-wei pad-all">
+          <span>原创</span>
+        </div>
+        <!-- 博客内容区域css: white-space:pre-wrap 会保留空格 换行 -->
+        <div class="blog" id="blog-Title">
+          <div class="blog-t">十分钟了解Spring</div>
+          <div class="b-content">
+            <p class="quote">
+  对于我们而言，使用Spring框架所做的就两件事：**开发Bean，配置Bean**。
+  对于Spring框架来说，就是根据配置文件（applicationContext.xml）创建Bean实例，并调用Bean实例的方法完成“依赖注入”。
+            </p>
+            <h3>BeanFactory和ApplicationContext</h3>
+            <p class="text">    spring通过一个配置文件描述  **Bean和Bean之间的依赖关系**  ，利用Java反射功能实例化Bean，并建立Bean之间的依赖。
+    **BeanFactory是Spring框架最核心的接口**，它提供了高级IOC的配置机制。
+    ApplicationContext建立在BeanFactory的基础上，提供了更多的面向应用的功能，提提供了国际化支持和框架事件体系。
+    BeanFactory，ApplicationContext都可以代表Spring容器，***Spring容器是生成Bean实例的工厂，并且管理容器中的Bean。***
+    Bean是Spring管理的基本单位，组件，数据源，Hibernate的SessionFactory，事务管理器，java对象，java组件等都当作**Bean**处理。</p>
+            <h3>一,Spring容器</h3>
+            <h4>- **BeanFactory接口**</h4>
+
+            <div class="code">
+              Ø Boolean **containBean**(String name):判断Spring容器是否包含id为name的Bean实例。
+              Ø <T> **getBean**(Class<T> requiredTypr):获取Spring容器中属于requiredType类型的唯一的Bean实例。
+              Ø Object **getBean**(String name)：返回Sprin容器中id为name的Bean实例。
+              Ø <T> T **getBean**(String name,Class requiredType)：返回容器中id为name,并且类型为requiredType的Bean
+              Ø Class **getType(**String name)：返回容器中指定Bean实例的类型。
+            </div>
+
+            <p class="text">
+              调用者只需使用**getBean()**方法即可获得指定Bean的引用
+              然而**ApplicationContext**作为**BeanFactory**的子接口，使用它作为Spring容器会更加方便。它的实现类有：FileSystemXmlApplicationContext、ClassPathXmlApplicationContext、AnnotationConfigApplicationContext。
+            </p>
+            <h4> - **ApplicationContext**</h4>
+            <div class="code">
+              FileSystemXmlApplicationContext：以基于文件系统的XML配置文件创建ApplicationContext实例
+              ClassPathXmlApplicationContext：以类加载路径下的XML配置文件创建的ApplicationContext实例。
+            </div>
+            <p class="text">
+              创建Spring容器时，必须提供Spring容器管理的Bean的详细配置信息。**他还会初始化所有的singleton Bean。**
+              ApplicationContext context = new ClassPathXmlApplicationContext(”bean.xml”);
+            </p>
+            <h3> 二，Bean获取Spring容器（一般不适用）</h3>
+            <p class="text"> 实现BeanFactoryAware接口的Bean，拥有访问BeanFactory容器的能力。
+              BeanFactoryAware接口仅有一个方法：
+              SetBeanFactory(BeanFactory beanFactory):该参数指向创建它的BeanFactory</p>
+            <div class="code">
+              public class Chinese implements ApplicationContextAware{
+                private ApplicationContext ctx;
+                public void setApplicationContext(ApplicationContext cyx)
+                  throws BeansException {
+                  this.ctx = ctx;
+                }
+                  public ApplicationContext getContext(){
+                  return ctx;
+                }
+              }
+              public class ChineseTest {
+                public static void main(String[] args) {
+                  ApplicationContext ctx = new ClassPathXmlApplicationContext("bean.xml");
+                  Chinese c = ctx.getBean("chinese",Chinese.class);
+                  System.out.println(c.getContext());
+                  System.out.println(c.getContext()==ctx);
+                }
+              }
+            </div>
+            <h3>三，ApplicationContext的国际化支持</h3>
+            <p class="text">ApplicationContext接口继承MessageSource接口:</p>
+            <div class="code">
+              String getMessage(Stringcode,Object[] args,Locale loc);
+              StringgetMessage(String code,Object[] args,String default,Locale loc);
+              StringgetMessage(MessageSourceResolvable resolvable,Local loc);
+            </div>
+            <p class="text">
+              当程序创建ApplicationContext容器时，Spring会自动查找在配置文件中名为messageSource的bean实例，一旦找到这个Bean实例，上述三个方法的调用被委托给该MessageSourceBean。
+            </p>
+            <h3>四，事件机制（**观察者模式**）</h3>
+            <p class="text">        ApplicationEvent类 和 ApplicationListener接口
+        如果容器中有一个ApplicationListener
+        Bean，每当ApplicationContext发布Application'Event时，ApplicationListenerBean就会自动触发。
+
+        - ApplicationEvent:容器事件，必须有ApplicationContext发布
+        - ApplicationListener:监听器，可由容器中的任何监听器Bean担任
+            </p>
+            <p class="text">- Spring提供的内置事件</p>
+            <ul>
+              <li> 1》ContextRefreshedEvent：**ApplicationContext容器 **初始化** 或 **刷新**
+                触发该事件。此处说的初始化，是指所有的bean被成功加载，后处理的bean被检测激活，所有的singleton bean被预初始化，ApplicationContext容器已就绪可用。</li>
+              <li>2》ContextStartdEvent：**当使用ApplicationContext的子接口ConfigurableApplicationContex接口的 **start()方法**
+                启动ApplicationContext容器时触发该事件。容器管理生命周期的bean实例将获得一个指定的启动信号，这在经常需要停止后重新启动的场合比较常见。</li>
+              <li>3》ContextClossedEvent：**当使用ConfigurableApplicationContex接口的 **close()方法**
+                关闭ApplicationContext容器时触发该事件。</li>
+              <li>4》ContextStoppedEvent：**当使用ConfigurableApplicationContex接口的 **stop()方法**
+                使ApplicationContext容器停止时触发该事件
+                。此处的“停止”意味着，容器管理生命周期的bean实例将获得一个指定的停止信号。被停止的spring容器可以再次通过调用start()方法重新启动。</li>
+              <li>
+                5》RequestHandledEvent：**Web相关的事件，只能应用于使用DispatcherServlet的Web应用中。在使用spring作为前端的MVC控制器时，当spring处理用户请求结束后，系统会自动触发该事件。
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- 提示框 -->
+        <div class="tip pad-all">
+          <div class="tip-content ">
+            作者：联系作者
+            发表时间：2022-4-8
+            版权声明：自由转载-非商用-非衍生-保持署名
+            公众号转载：请在文末添加作者二维码
+          </div>
+          <!-- 微信二维码-->
+          <div>
+            <img class="img-wechat" src="./images/微信二维码.png" alt="">
+          </div>
+        </div>
+       
+      </div>
+      <!-- 工具条 :hover 有动画效果-->
+      <div class="b-tools ">
+        <div class="ab ">
+          <div class="ab-2 m"><img class="img-t" src="./images/rocket.png" alt=""></div>
+          <!-- 点击跳转到相应位置   但是此处使用动画效果，我这里想到的js实现，不能用所以此处，就仅仅是一个动画 -->
+          <div class="ab-1 ab-2 is_show1"><a href="#blog-Title">标题</a> </div>
+        </div>
+      </div>
+  </section>
+<!-- 底部 -->
+  <footer>
+    <div class="footer-title">欢迎访问</div>
+    </div>
+    <div class="footer-container">
+      <div class="footer-left">
+        <img class="img-wechat" src="./images/微信二维码.png" alt="">
+      </div>
+      <div class="footer-center">
+        <div>
+          <div class="l-tit">最新博客推荐</div>
+          <div class="l"><a href="#">Thymeleaf</a></div>
+          <div class="l"><a href="#">Shiro</a></div>
+          <div class="l"><a href="#">十分钟了解Spring</a></div>
+          <div class="l"><a href="#">冒泡算法</a></div>
+        </div>
+      </div>
+      <div class="footer-right">
+        <div class="l-tit">简介</div>
+        <div class="l">
+          中南财经政法大学的一名苦逼码农，喜欢骑车，喜欢长途，去过长白山、青海湖、太湖远征。很菜又爱玩。博客中难免有些错误或者写的不好的地方，欢迎大家留言指出。我会第一时间进行完善
+        </div>
+      </div>
+    </div>
+    <div class="footer-contact">
+      <div class="main">suzhongyuan360@126.com</div>
+      <div class="ng-scope">我的邮箱</div>
+    </div>
+  </footer>
+</body>
+
+</html>
